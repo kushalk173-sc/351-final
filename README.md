@@ -89,9 +89,7 @@ Divide a list in two and recurse.
 ### Maximum Contiguous Subarray (MCS)
 - **Brute Force** → O(n²)
   - Go through all possible combinations.
-- **
-
-Divide & Conquer** → O(n log n)
+- **Divide & Conquer** → O(n log n)
   - Break list into sublists.
   - Find MCS within those sublists.
   - Find straddling sum for the input.
