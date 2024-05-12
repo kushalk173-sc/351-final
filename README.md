@@ -13,7 +13,7 @@
 | **Counting Sort** | Create a list from 0 to the max key, populated with how many keys equal the index. Make a cumulative version of that list. Using this position list, iterate the input list backwards, placing each element in the appropriate position by key and then decrementing the position. | O(n+k) | O(n+k) | O(n+k) | - | No |
 | **Bucket Sort** | Distribute elements into buckets, sort each bucket, and then concatenate the sorted buckets. | O(n²) | O(n) | O(n) | - | No |
 | **Binary Search** | The input list must be sorted. Check the median of the list. Either it is the target, or search the appropriate half of the list. | O(log n) | O(1) | O(log n) | - | N/A |
-| **Karatsuba** | A more efficient way of multiplication. AB = (10^n)A1B1 + (10^(n/2))[(A1 + A0)(B1 + B0) - A0B0 - A1B1] + A0B0 | - | - | - | T(n) = 3T(n/2) + Θ(n) | N/A |
+| **Karatsuba** | A more efficient way of multiplication. \n AB = (10^n)A1B1 + (10^(n/2))[(A1 + A0)(B1 + B0) - A0B0 - A1B1] + A0B0 | - | - | - | T(n) = 3T(n/2) + Θ(n) | N/A |
 | **BFS** | 1) Add the starting node to a queue. 2) Pop from the queue. 3) Add all the popped element’s new neighbors to the queue. 4) Repeat 2-4 until you’ve found the node you wanted. | O(V²) for adjacency matrix, O(V + E) for adjacency list | - | - | - | N/A |
 | **DFS** | 1) Add the starting node to a stack + visited set. 2) Pop from the stack. 3) Add all the popped element’s new neighbors to the stack. 4) Repeat 2-4 until you’ve found the node you wanted. | O(V² + E) for adjacency matrix, O(V + E) for adjacency list | - | - | - | N/A |
 | **Dijkstra’s** | Single-source shortest path algorithm. | Θ(V³) for adjacency matrix, Θ(V² + E) for adjacency list, Θ(E log V) for min heap | - | - | - | N/A |
