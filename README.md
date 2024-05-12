@@ -24,16 +24,78 @@
 | **Huffman** | A way to express something (a string) in the minimum number of bits. 1) Create nodes with each value. 2) Combine the two nodes with the lowest frequency and merge them where the parents are the total of the children. 3) Repeat until the top node is the total count of all nodes. | O(n log n) | O(n log n) | O(n log n) | - | N/A |
 | **Minimax** | Algorithm for decision making in game theory. Evaluates the best move by minimizing the possible loss for a worst-case scenario. | - | - | - | - | N/A |
 
-### Notes on Max’s Review Doc
 
-**Reasons for time complexity (incomplete)**:
-- **Counting sort**: Finding the maximum and the cumulative list takes n time, and finding the sorted list takes k time. Note that k and n are independent variables.
-- **Radix sort**: You do the underlying sort d times, where d is the number of digits.
-- **Bucket Sort**:
-  - **Best case**: every bucket has exactly 1 item (uniformly distributed).
-  - **Average case**: The average amount of items per bucket is close to 1.
-  - **Worst case**: Most of the items are in one bucket, so the runtime is essentially the same as doing the underlying sort.
+## Detailed info on each algorithm 
+### Bubble Sort
+- **Detailed Complexity Analysis**: Bubble sort makes O(n) passes through the list. Each pass makes O(n) comparisons and potentially swaps, leading to O(n²) comparisons and swaps in the worst case.
+- **Practical Use**: Often used for educational purposes or for very small datasets. It's simple to understand and implement.
 
+### Insertion Sort
+- **Detailed Complexity Analysis**: In the worst case, each insertion requires shifting all previously sorted elements, resulting in O(n²) time complexity. In the best case (already sorted list), each insertion requires no shifting, resulting in O(n) time complexity.
+- **Practical Use**: Efficient for small or nearly sorted datasets. It's also used in hybrid algorithms like Timsort, which combines insertion sort with merge sort for efficiency.
+
+### Selection Sort
+- **Detailed Complexity Analysis**: Selection sort performs O(n²) comparisons and O(n) swaps regardless of the initial order of the list. This makes it less efficient than insertion sort for nearly sorted lists.
+- **Practical Use**: Rarely used in practice due to its inefficiency, but it is simple to implement and understand.
+
+### Merge Sort
+- **Detailed Complexity Analysis**: Merge sort consistently divides the list in half, resulting in a logarithmic number of levels. Each level requires a linear amount of work to merge, resulting in O(n log n) time complexity.
+- **Practical Use**: Widely used due to its predictable O(n log n) time complexity and stability. It is the basis for many modern sorting algorithms, including Timsort.
+
+### Quick Sort
+- **Detailed Complexity Analysis**: The efficiency of quick sort heavily depends on the choice of the pivot. Randomized pivot selection or the median-of-three method can help avoid the worst-case scenario.
+- **Practical Use**: Commonly used due to its average-case efficiency and in-place sorting. It's often the default sorting algorithm in many programming libraries (e.g., C's qsort, Python's sorted).
+
+### Heap Sort
+- **Detailed Complexity Analysis**: Building a max heap from an unsorted list requires O(n) time, and each of the n removals from the heap requires O(log n) time, resulting in O(n log n) overall.
+- **Practical Use**: Useful when a stable sort is not required and in-place sorting is needed. It has consistent O(n log n) performance but is often slower than quick sort in practice due to higher constant factors.
+
+### Radix Sort
+- **Detailed Complexity Analysis**: Radix sort processes each digit in the numbers. If there are d digits and n numbers, and counting sort (or another stable sort) is used on each digit, the overall complexity is O(d(n + b)).
+- **Practical Use**: Efficient for sorting large sets of numbers where the number of digits (d) is not significantly larger than the number of items (n).
+
+### Counting Sort
+- **Detailed Complexity Analysis**: Counting sort's time complexity is O(n + k), where n is the number of elements and k is the range of the input. This makes it efficient for small ranges but impractical for large ranges.
+- **Practical Use**: Suitable for datasets where the range of input values is not significantly larger than the number of items.
+
+### Bucket Sort
+- **Detailed Complexity Analysis**: Bucket sort's performance depends on the distribution of elements. If elements are uniformly distributed, each bucket will have a small number of elements, leading to O(n) time complexity.
+- **Practical Use**: Effective for sorting floating-point numbers or uniformly distributed data. The choice of bucket size and underlying sort is crucial for efficiency.
+
+### Binary Search
+- **Detailed Complexity Analysis**: Binary search divides the search interval in half with each step, leading to O(log n) time complexity.
+- **Practical Use**: Ideal for searching in sorted arrays. It is not a sorting algorithm but a searching algorithm.
+
+### Karatsuba
+- **Detailed Complexity Analysis**: Karatsuba's divide-and-conquer approach reduces the multiplication of two n-digit numbers from O(n²) to O(n^log₃ 2) ≈ O(n^1.585).
+- **Practical Use**: Used in high-performance computing for multiplying large integers.
+
+### BFS and DFS
+- **BFS Detailed Analysis**: BFS explores all nodes at the present depth before moving to the next level, making it useful for finding the shortest path in unweighted graphs.
+- **DFS Detailed Analysis**: DFS explores as far as possible along each branch before backtracking, making it useful for pathfinding and topological sorting in directed acyclic graphs (DAGs).
+
+### Dijkstra’s Algorithm
+- **Detailed Complexity Analysis**: Dijkstra’s algorithm uses a priority queue to efficiently find the shortest path from the source vertex to all other vertices. The complexity depends on the data structure used for the priority queue.
+- **Practical Use**: Widely used in routing and navigation systems.
+
+### Floyd’s Algorithm
+- **Detailed Complexity Analysis**: Floyd’s algorithm uses a dynamic programming approach with three nested loops, resulting in O(V³) time complexity.
+- **Practical Use**: Suitable for dense graphs where all-pairs shortest path is needed.
+
+### Kruskal’s and Prim’s Algorithms
+- **Kruskal’s Detailed Analysis**: Kruskal’s algorithm sorts all edges and uses a union-find data structure to detect cycles, ensuring a minimum spanning tree.
+- **Prim’s Detailed Analysis**: Prim’s algorithm builds the minimum spanning tree by adding the smallest edge that connects a vertex in the tree to a vertex outside the tree.
+
+### Huffman Coding
+- **Detailed Complexity Analysis**: Huffman coding creates a binary tree based on the frequencies of characters, resulting in O(n log n) complexity for building the tree.
+- **Practical Use**: Commonly used in data compression algorithms, such as ZIP and JPEG.
+
+### Minimax Algorithm
+- **Detailed Complexity Analysis**: Minimax explores all possible moves in a game tree, leading to exponential complexity based on the depth of the tree.
+- **Practical Use**: Used in decision making and AI for games like chess and tic-tac-toe.
+
+
+#Notes on Max’s Review Doc
 ---
 
 ### Coin Changing Algorithm
