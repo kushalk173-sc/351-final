@@ -244,6 +244,68 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 ### Karatsuba
 **Schoolbook multiplication**: Quadratic in the number of digits. Karatsuba reduces multiplications by decomposing the problem and reusing results.
 
+### Overview
+The Karatsuba algorithm is a divide-and-conquer algorithm for multiplying two large numbers more efficiently than the traditional grade-school method. It reduces the number of single-digit multiplications required to multiply two n-digit numbers.
+
+### Traditional Multiplication
+In the traditional method, multiplying two n-digit numbers involves performing \( n^2 \) single-digit multiplications. For example, to multiply 1234 by 5678, we perform \( 4 \times 4 = 16 \) single-digit multiplications.
+
+### Karatsuba's Insight
+The Karatsuba algorithm reduces the number of multiplications by splitting each number into two halves. Suppose we have two n-digit numbers \( A \) and \( B \), and we split them as follows:
+- \( A = a1 \times 10^{n/2} + a0 \)
+- \( B = b1 \times 10^{n/2} + b0 \)
+
+Then the product \( AB \) can be written as:
+\[ AB = (a1 \times 10^{n/2} + a0)(b1 \times 10^{n/2} + b0) \]
+\[ = a1b1 \times 10^n + (a1b0 + a0b1) \times 10^{n/2} + a0b0 \]
+
+Instead of performing four multiplications \( (a1b1, a1b0, a0b1, a0b0) \), Karatsuba's method calculates it using three multiplications:
+1. \( z0 = a0 \times b0 \)
+2. \( z1 = (a0 + a1) \times (b0 + b1) \)
+3. \( z2 = a1 \times b1 \)
+
+The product is then:
+\[ AB = z2 \times 10^n + ((z1 - z2 - z0) \times 10^{n/2}) + z0 \]
+
+### Complexity
+The time complexity \( T(n) \) of the Karatsuba algorithm is:
+\[ T(n) = 3T(n/2) + O(n) \]
+Using the Master Theorem, we get:
+\[ T(n) = O(n^{\log_2 3}) \approx O(n^{1.585}) \]
+
+This is significantly faster than the traditional \( O(n^2) \) method, especially for large \( n \).
+
+### Detailed Steps
+1. **Base Case**: If the numbers are small enough (single-digit), multiply them directly.
+2. **Recursive Case**:
+   - Split the input numbers.
+   - Recursively compute the three products.
+   - Combine the results as per the formula.
+
+### Pseudocode
+```python
+def karatsuba(x, y):
+    # Base case for recursion
+    if x < 10 or y < 10:
+        return x * y
+    else:
+        # Calculate the size of the numbers
+        n = max(len(str(x)), len(str(y)))
+        m = n // 2
+
+        # Split the digit sequences around the middle
+        x1, x0 = divmod(x, 10**m)
+        y1, y0 = divmod(y, 10**m)
+
+        # 3 recursive calls made to numbers approximately half the size
+        z2 = karatsuba(x1, y1)
+        z0 = karatsuba(x0, y0)
+        z1 = karatsuba(x1 + x0, y1 + y0)
+
+        # Combine the three products to get the final result
+        return (z2 * 10**(2*m)) + ((z1 - z2 - z0) * 10**m) + z0
+```
+
 ---
 
 ### Graphs
@@ -291,6 +353,66 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 **Heuristic**: A function that assigns a value to each position in the game.
 **Probabilistic spaces**: Minimax with expected value can give a false idea of the best move.
 
+
+## Minimax Algorithm
+
+### Overview
+
+Minimax is a decision rule used in decision making and game theory. It is used to minimize the possible loss for a worst-case scenario. When dealing with gains, it is referred to as "maximin"—to maximize the minimum gain.
+
+### Game Representation
+In a game with two players, Max and Min:
+- Max aims to maximize the score.
+- Min aims to minimize the score.
+
+The game can be represented as a tree where:
+- Nodes represent game states.
+- Edges represent moves by players.
+- Leaf nodes represent terminal states of the game with their heuristic values.
+
+### Algorithm Steps
+1. **Initialization**: Start at the root node (current game state).
+2. **Recursive Evaluation**:
+   - If the node is a terminal node, return its heuristic value.
+   - If it's Max's turn, calculate the maximum value of the child nodes.
+   - If it's Min's turn, calculate the minimum value of the child nodes.
+3. **Backpropagation**: Propagate these values back up the tree, alternating between Max and Min layers.
+
+### Pseudocode
+```python
+def minimax(node, depth, isMaximizingPlayer):
+    if depth == 0 or node is a terminal node:
+        return heuristic value of node
+
+    if isMaximizingPlayer:
+        bestValue = -infinity
+        for each child of node:
+            v = minimax(child, depth - 1, False)
+            bestValue = max(bestValue, v)
+        return bestValue
+    else:
+        bestValue = infinity
+        for each child of node:
+            v = minimax(child, depth - 1, True)
+            bestValue = min(bestValue, v)
+        return bestValue
+```
+
+### Complexity
+- **Time Complexity**: \( O(b^d) \), where \( b \) is the branching factor and \( d \) is the depth of the tree.
+- **Space Complexity**: \( O(b \cdot d) \) due to the space required to store the tree and recursive call stack.
+
+### Practical Considerations
+In real-world scenarios, the game tree can be extremely large, making it impractical to search completely. Techniques like **alpha-beta pruning** can reduce the effective branching factor, making the search more feasible.
+
+### Alpha-Beta Pruning
+This optimization reduces the number of nodes evaluated by the minimax algorithm. It maintains two values, alpha and beta:
+- **Alpha**: The best value that the maximizer currently can guarantee.
+- **Beta**: The best value that the minimizer currently can guarantee.
+
+If a move proves to be worse than the previously examined moves, it is pruned (i.e., not evaluated further).
+
+
 ---
 
 ### Huffman Coding
@@ -305,6 +427,46 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 **NP**: Problems verifiable in polynomial time.
 **Reduction**: Showing one problem can be transformed into another.
 
+### Overview
+
+P vs. NP is one of the most critical open problems in computer science and mathematics. It relates to the ability to solve problems versus the ability to verify solutions.
+
+### Definitions
+
+1. **P (Polynomial Time)**: 
+   - Class of decision problems that can be solved by a deterministic Turing machine in polynomial time.
+   - Example: Checking if a list is sorted.
+
+2. **NP (Nondeterministic Polynomial Time)**:
+   - Class of decision problems for which a given solution can be verified by a deterministic Turing machine in polynomial time.
+   - Example: Given a solution to Sudoku, verifying it is correct.
+
+### Relationship between P and NP
+- **P ⊆ NP**: If a problem can be solved in polynomial time, it can certainly be verified in polynomial time.
+- **NP-Complete**: The hardest problems in NP. If any NP-complete problem can be solved in polynomial time, then P = NP.
+
+### Examples of Problems
+
+- **In P**:
+  - Sorting a list
+  - Finding the greatest common divisor
+  - Solving linear equations
+
+- **In NP (but not known to be in P)**:
+  - The Traveling Salesman Problem (decision version): Is there a tour of length ≤ k?
+  - The Hamiltonian Cycle Problem: Does a given graph have a Hamiltonian cycle?
+
+### Importance
+The question of whether \( P = NP \) remains unsolved. Proving \( P = NP \) would imply that every problem whose solution can be verified quickly can also be solved quickly. This would have profound implications across various fields, from cryptography to algorithm design.
+
+### Problem Reduction and NP-Completeness
+- **Polynomial-Time Reduction**: A problem \( A \) can be reduced to problem \( B \) in polynomial time if any instance of \( A \) can be transformed into an instance of \( B \) in polynomial time.
+- **NP-Complete Problems**: If a polynomial-time algorithm is found for one NP-complete problem, all NP problems can be solved in polynomial time, proving \( P = NP \).
+
+### Example: SAT Problem
+- **SAT (Satisfiability Problem)**: Given a Boolean formula, determine if there is an assignment of truth values to variables that makes the formula true.
+- **NP-Completeness**: SAT was the first problem proven to be NP-complete (Cook-Levin theorem).
+- 
 ---
 #### Selection Sort
 1. **Why is selection sort preferred for small data sets?**
@@ -332,4 +494,6 @@ A single pass iterates up to the entire sorted part’s length. The number of co
      - Space Complexity: O(V²).
      - Efficient for dense graphs.
      - Faster for checking the presence of an edge between two vertices.
+
+---
 
