@@ -308,10 +308,30 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 **Reduction**: Showing one problem can be transformed into another.
 
 ---
+#### Selection Sort
+1. **Why is selection sort preferred for small data sets?**
+   - Selection sort is simple to understand and implement. For small data sets, the quadratic time complexity does not significantly impact performance.
 
-### Additional Questions:
-1. **Selection Sort**: Why is selection sort preferred for small data sets?
-2. **Radix Sort**: How would you modify Radix Sort to handle variable-length strings?
-3. **Bucket Sort**: How does the distribution of input data affect the choice of buckets?
-4. **Master Theorem**: How would the recurrence relation change for a problem divided into three parts instead of two?
-5. **Graph Algorithms**: Explain the differences between using adjacency lists and adjacency matrices for graph representation.
+#### Radix Sort
+2. **How would you modify Radix Sort to handle variable-length strings?**
+   - Pad the shorter strings with a special character (e.g., '\0') that is smaller than any other character in the set. This ensures that shorter strings are sorted correctly relative to longer strings.
+
+#### Bucket Sort
+3. **How does the distribution of input data affect the choice of buckets?**
+   - The choice of buckets should reflect the distribution of the input data. If data is uniformly distributed, evenly sized buckets are ideal. If data is skewed, adjusting bucket sizes to handle different densities can improve efficiency.
+
+#### Master Theorem
+4. **How would the recurrence relation change for a problem divided into three parts instead of two?**
+   - The recurrence relation would change to T(n) = 3T(n/3) + Θ(n). The analysis using the Master Theorem would then follow the same steps, comparing the complexity of the divide step to the combined complexity of the recursive calls.
+
+#### Graph Algorithms
+5. **Explain the differences between using adjacency lists and adjacency matrices for graph representation.**
+   - **Adjacency List**:
+     - Space Complexity: O(V + E).
+     - Efficient for sparse graphs.
+     - Faster for iterating over neighbors of a vertex.
+   - **Adjacency Matrix**:
+     - Space Complexity: O(V²).
+     - Efficient for dense graphs.
+     - Faster for checking the presence of an edge between two vertices.
+
