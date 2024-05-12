@@ -95,7 +95,7 @@
 - **Practical Use**: Used in decision making and AI for games like chess and tic-tac-toe.
 
 
-#Notes on Max’s Review Doc
+# Notes on Max’s Review Doc
 ---
 
 ### Coin Changing Algorithm
