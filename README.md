@@ -176,6 +176,7 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 ### Master Theorem: (T(n) = aT(n/b) + f(n))
 - **Case 1**: If f(n) = O(n^c) and log_b(a) > c, then T(n) = Θ(n^log_b(a)).
 - **Case 2**: If f(n) = Θ(n^c) and log_b(a) = c, then T(n) = Θ(n^log_b(a) * log(n)).
+- **Case 2f**: If f(n) = Θ(n^c (log n)^d) and log_b(a) = c, then T(n) = Θ(n^log_b(a) * (log(n))^d+1). -> Side note - Case 2 is actually case 2f with d = 0. 
 - **Case 3**: If f(n) = Ω(n^c) and log_b(a) < c, then T(n) = Θ(f(n)).
 
 ---
