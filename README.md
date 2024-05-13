@@ -38,7 +38,7 @@
 
 ### Merge Sort
 - **Detailed Complexity Analysis**: Merge sort consistently divides the list in half, resulting in a logarithmic number of levels. Each level requires a linear amount of work to merge, resulting in O(n log n) time complexity.
-- **Practical Use**: Widely used due to its predictable O(n log n) time complexity and stability. It is the basis for many modern sorting algorithms, including Timsort.
+- **Practical Use**: Widely used due to its predictable O(n log n) time complexity and stability. It is the basis for many modern sorting algorithmst.
 
 ### Quick Sort
 - **Detailed Complexity Analysis**: The efficiency of quick sort heavily depends on the choice of the pivot. Randomized pivot selection or the median-of-three method can help avoid the worst-case scenario.
@@ -106,6 +106,11 @@
 - **O**: f(x) = O(g(x)) if ∃x₀,C > 0 such that ∀x ≥ x₀, f(x) ≤ Cg(x).
 - **Ω**: f(x) = Ω(g(x)) if ∃x₀,B > 0 such that ∀x ≥ x₀, f(x) ≥ Bg(x).
 - **Θ**: f(x) = Θ(g(x)) if ∃x₀,B > 0,C > 0 such that ∀x ≥ x₀, Bg(x) ≤ f(x) ≤ Cg(x).
+
+Essentially Big O represents an upper bound, or a function which is >= our function f(x) at every point. This helps us because it acts as a better represented upper bound for our function
+Big O will be better represented by the fact that f(x)/g(x) <= C. Example solve 
+![Screenshot (166)](https://github.com/kushalk173-sc/351-final/assets/71304688/065ea6af-c011-47aa-91f2-22fee3dc68db)
+
 
 ---
 
@@ -357,8 +362,14 @@ def karatsuba(x, y):
 ## Minimax Algorithm
 
 ### Overview
+It is an algorithm for representing game states.
 
-Minimax is a decision rule used in decision making and game theory. It is used to minimize the possible loss for a worst-case scenario. When dealing with gains, it is referred to as "maximin"—to maximize the minimum gain.
+### Use Cases 
+The game needs to fulfil certain criteria for minimax to be used. 
+- It must be an adversarial game
+- They must be representable as a tree -> They must have discrete states,
+- The game must be zero sum -> No action can benefit more than one player. Hence one players gain = Other players loss -> making sum of all heursitic functions of all players involved = 0
+- Games must be deterministic, or can they be stochastic even? 
 
 ### Game Representation
 In a game with two players, Max and Min:
@@ -376,7 +387,7 @@ The game can be represented as a tree where:
    - If the node is a terminal node, return its heuristic value.
    - If it's Max's turn, calculate the maximum value of the child nodes.
    - If it's Min's turn, calculate the minimum value of the child nodes.
-3. **Backpropagation**: Propagate these values back up the tree, alternating between Max and Min layers.
+3. **Backpropagation**: Propagate these values back up the tree, alternating between Max and Min layers, and placing the optimal value for both states in each of the parent root nodes. 
 
 ### Pseudocode
 ```python
@@ -411,6 +422,8 @@ This optimization reduces the number of nodes evaluated by the minimax algorithm
 - **Beta**: The best value that the minimizer currently can guarantee.
 
 If a move proves to be worse than the previously examined moves, it is pruned (i.e., not evaluated further).
+
+The entire point of running alpha-beta pruning is to make sure that we are not focusing on dead values. In a game tree, when we find a node which will not be executed, as it is a worse choice than its sibling, then we remove it and the subtree for which it is a parent
 
 
 ---
