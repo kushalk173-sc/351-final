@@ -35,7 +35,7 @@
 <br>
 **Advantages**: Efficient for small and nearly sorted lists; stable. <br>
 **Disadvantages**: Inefficient for large lists due to O(n²) time complexity.<br>
-**Best Case**: O(n) when list is already sorted<br>
+**Best Case**: O(n) when list is already sorted <br>
 **Worst Case**: O(n^2) when list is reverse sorted, so each element has to be inserted at the front. <br>
 <br> **What are Inversions ?**
 <br> An inversion is a pair of indexes, wher the elements are out of order, now the number of inversions will tell you how bad the insertion sort needed is. If its nC2 -> worst case. 
