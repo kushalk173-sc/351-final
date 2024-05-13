@@ -243,14 +243,20 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 ---
 
 ### Bucket Sort
-**Bucket properties**: Buckets are chosen based on the input distribution; aim for an average of 1 item per bucket.
-**Underlying sort**: Should be fast and stable.
-**Ideal data set**: Uniformly distributed data.
-**Average case**: Same as best case because the underlying sort runs efficiently with small buckets.
+**Each Bucket is stored with a specific 
 
 ---
 
 ### Master Theorem: (T(n) = aT(n/b) + f(n))
+Better way to remember it 
+T(n) = a T(n/b) + f(n) where Θ(x) = f(n) 
+T(n) = Θ(x * n^log_b(a)) 
+4 cases = 
+x > n^log_b(a) -> ignore n^log_b(a) hence T(n) = Θ(x) [root is worst to process]
+x < n^log_b(a) -> ignore x hence T(n) = Θ(n^log_b(a)) [Leaves are worst to process
+x = n^log_b(a) -> Cannot ignore anything so T(n) = Θ(n^log_b(a) * log(n)) [All are equally bad to process] [We removed x here cuz technically processing root has been included in the first term] 
+Another catch - What x = n^c * (log n) ^ d , and c = log_b(a) Then ? We cannot ignore x's log factor anymore. So our Case changes into Θ(n^log_b(a) * (log(n))^d+1)
+
 - **Case 1**: If f(n) = O(n^c) and log_b(a) > c, then T(n) = Θ(n^log_b(a)).
 - **Case 2**: If f(n) = Θ(n^c) and log_b(a) = c, then T(n) = Θ(n^log_b(a) * log(n)).
 - **Case 2f**: If f(n) = Θ(n^c (log n)^d) and log_b(a) = c, then T(n) = Θ(n^log_b(a) * (log(n))^d+1). -> Side note - Case 2 is actually case 2f with d = 0. 
