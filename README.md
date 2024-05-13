@@ -32,11 +32,11 @@
 - **Detailed Complexity Analysis**: In the worst case, each insertion requires shifting all previously sorted elements, resulting in O(n²) time complexity. In the best case (already sorted list), each insertion requires no shifting, resulting in O(n) time complexity.
 - **Practical Use**: Efficient for small or nearly sorted datasets. It's also used in hybrid algorithms like Timsort, which combines insertion sort with merge sort for efficiency.
  single pass iterates up to the entire sorted part’s length. The number of comparisons is 1 + 1 + … 1 (n - 1 times) = n - 1 in the best case, or 1 + 2 + … + (n - 1) = n(n - 1)/2 in the worst case. The numbers of comparisons and of swaps/shifts are the number of inversions, give or take a constant on each pass (which doesn’t affect the asymptotic time complexity).
-
-**Advantages**: Efficient for small and nearly sorted lists; stable.
-**Disadvantages**: Inefficient for large lists due to O(n²) time complexity.
-**Best Case**: O(n) when list is already sorted
-**Worst Case**: O(n^2) when list is reverse sorted, so each element has to be inserted at the front. 
+<br>
+**Advantages**: Efficient for small and nearly sorted lists; stable. <br>
+**Disadvantages**: Inefficient for large lists due to O(n²) time complexity.<br>
+**Best Case**: O(n) when list is already sorted<br>
+**Worst Case**: O(n^2) when list is reverse sorted, so each element has to be inserted at the front. <br>
 <br> **What are Inversions ?**
 <br> An inversion is a pair of indexes, wher the elements are out of order, now the number of inversions will tell you how bad the insertion sort needed is. If its nC2 -> worst case. 
 
