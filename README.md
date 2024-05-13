@@ -362,7 +362,7 @@ If a move proves to be worse than the previously examined moves, it is pruned (i
 
 The entire point of running alpha-beta pruning is to make sure that we are not focusing on dead values. In a game tree, when we find a node which will not be executed, as it is a worse choice than its sibling, then we remove it and the subtree for which it is a parent
 
-** TODO: GET MORE INFO FROM OH ** 
+**TODO: GET MORE INFO FROM OH** 
 
 ---
 
@@ -418,7 +418,7 @@ The question of whether \( P = NP \) remains unsolved. Proving \( P = NP \) woul
 - **SAT (Satisfiability Problem)**: Given a Boolean formula, determine if there is an assignment of truth values to variables that makes the formula true.
 - **NP-Completeness**: SAT was the first problem proven to be NP-complete (Cook-Levin theorem).
 
-** TODO: Talk about NP reductions in OH **
+**TODO: Talk about NP reductions in OH**
 
 ---
 #### Selection Sort
