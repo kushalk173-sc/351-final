@@ -107,10 +107,22 @@
 - **Ω**: f(x) = Ω(g(x)) if ∃x₀,B > 0 such that ∀x ≥ x₀, f(x) ≥ Bg(x).
 - **Θ**: f(x) = Θ(g(x)) if ∃x₀,B > 0,C > 0 such that ∀x ≥ x₀, Bg(x) ≤ f(x) ≤ Cg(x).
 
+#### Big O
 Essentially Big O represents an upper bound, or a function which is >= our function f(x) at every point. This helps us because it acts as a better represented upper bound for our function
 Big O will be better represented by the fact that f(x)/g(x) <= C. Example solve 
 ![Screenshot (166)](https://github.com/kushalk173-sc/351-final/assets/71304688/065ea6af-c011-47aa-91f2-22fee3dc68db)
+![image](https://github.com/kushalk173-sc/351-final/assets/71304688/96921661-4a30-459c-9038-53aec2f2031d)
 
+#### Big Theta
+Big Theta acts as a tight bound for our function, where it tries to represent our exact function in a better way, where all we care about is the average runtime, and is the most commonly used runtime, and not some arbitrary constant. here is an example solution 
+![image](https://github.com/kushalk173-sc/351-final/assets/71304688/ae7d2194-8725-4a7d-bc4c-ea4a32f123d3)
+
+#### Big Omega
+Big Omega acts as a lower bound for our function. Solves similar to Big O, with the sign flipped. 
+f(x)/g(x) => C
+
+### Limit theorems for Big O
+![image](https://github.com/kushalk173-sc/351-final/assets/71304688/c199e859-e97b-4693-b5ad-fcb45481b020)
 
 ---
 
