@@ -3,7 +3,7 @@
 # All Algorithm Information
 | **Algorithm** | **Description** | **Worst Case** | **Best Case** | **Average Case** | **Recurrence Relation** | **In-Place** |
 |----------------|-----------------|---------------|---------------|----------------|-------------------------|-------------|
-| **Bubble Sort** | Iterates through a list of length n, starting at the beginning and swapping elements if the current is bigger. After each step, the rightmost side becomes sorted. | O(n²) | O(n) | O(n²) | - | Yes |
+| **Bubble Sort** | Iterates through a list of length n, starting at the beginning and swapping elements if the current is bigger. <br> After each step, the rightmost side becomes sorted. | O(n²) | O(n) | O(n²) | - | Yes |
 | **Insertion Sort** | Starting with a list A of length n, pick up A[1]. Look left. If anything left is larger, slide it to the right, then insert. Continue to iterate through the list until sorted. | O(n²) | O(n) | O(n²) | - | Yes |
 | **Selection Sort** | Look through a list A, find the index of the smallest item. Swap A[that index] with A[0]. Now A[0] is correctly placed. Then look through the rest of the list for the index of the smallest item. Swap with A[i]. | O(n²) | O(n²) | O(n²) | - | Yes |
 | **Merge Sort** | Divide list by 2, repeating until the sublists are of size 2. Then, compare & sort the elements in each list. Merge the sublists with ones next to it and compare and sort. Repeat until the list is of size n. | O(n log n) | O(n log n) | O(n log n) | T(n) = 2T(n/2) + Θ(n) | No |
@@ -14,13 +14,13 @@
 | **Bucket Sort** | Distribute elements into buckets, sort each bucket, and then concatenate the sorted buckets. | O(n²) | O(n) | O(n) | - | No |
 | **Binary Search** | The input list must be sorted. Check the median of the list. Either it is the target, or search the appropriate half of the list. | O(log n) | O(1) | O(log n) | - | N/A |
 | **Karatsuba** | A more efficient way of multiplication. AB = (10^n)A1B1 + (10^(n/2))[(A1 + A0)(B1 + B0) - A0B0 - A1B1] + A0B0 | - | - | - | T(n) = 3T(n/2) + Θ(n) | N/A |
-| **BFS** | 1) Add the starting node to a queue. 2) Pop from the queue. 3) Add all the popped element’s new neighbors to the queue. 4) Repeat 2-4 until you’ve found the node you wanted. | O(V²) for adjacency matrix, O(V + E) for adjacency list | - | - | - | N/A |
-| **DFS** | 1) Add the starting node to a stack + visited set. 2) Pop from the stack. 3) Add all the popped element’s new neighbors to the stack. 4) Repeat 2-4 until you’ve found the node you wanted. | O(V² + E) for adjacency matrix, O(V + E) for adjacency list | - | - | - | N/A |
+| **BFS** | 1) Add the starting node to a queue. <br> 2) Pop from the queue. <br> 3) Add all the popped element’s new neighbors to the queue. <br> 4) Repeat 2-4 until you’ve found the node you wanted. | O(V²) for adjacency matrix, O(V + E) for adjacency list | - | - | - | N/A |
+| **DFS** | 1) Add the starting node to a stack + visited set. <br> 2) Pop from the stack.<br> 3) Add all the popped element’s new neighbors to the stack.<br> 4) Repeat 2-4 until you’ve found the node you wanted. | O(V² + E) for adjacency matrix, O(V + E) for adjacency list | - | - | - | N/A |
 | **Dijkstra’s** | Single-source shortest path algorithm. | Θ(V³) for adjacency matrix, Θ(V² + E) for adjacency list, Θ(E log V) for min heap | - | - | - | N/A |
 | **Floyd’s** | Finds shortest paths for a weighted (pos or neg) and directed graph using an adjacency matrix. | O(V³) | - | - | - | N/A |
 | **Kruskal’s** | Creates a minimum spanning tree. Starts at the edge with the smallest value, and uses the next smallest one until all nodes are reached. | O(E log E) | - | - | - | N/A |
 | **Prim’s** | Creates a minimum spanning tree. Starts at the edge with the smallest value and uses the smallest edge connected to a node that it has reached as the next edge to visit. | O(E log V) with min heap, O(V²) with adjacency matrix | - | - | - | N/A |
-| **Huffman** | A way to express something (a string) in the minimum number of bits. 1) Create nodes with each value. 2) Combine the two nodes with the lowest frequency and merge them where the parents are the total of the children. 3) Repeat until the top node is the total count of all nodes. | O(n log n) | O(n log n) | O(n log n) | - | N/A |
+| **Huffman** | A way to express something (a string) in the minimum number of bits. <br> 1) Create nodes with each value.<br>  2) Combine the two nodes with the lowest frequency and merge them where the parents are the total of the children. <br> 3) Repeat until the top node is the total count of all nodes. | O(n log n) | O(n log n) | O(n log n) | - | N/A |
 | **Minimax** | Algorithm for decision making in game theory. Evaluates the best move by minimizing the possible loss for a worst-case scenario. | - | - | - | - | N/A |
 
 ## Detailed info on each algorithm 
@@ -108,7 +108,7 @@
 - **Θ**: f(x) = Θ(g(x)) if ∃x₀,B > 0,C > 0 such that ∀x ≥ x₀, Bg(x) ≤ f(x) ≤ Cg(x).
 
 #### Big O
-Essentially Big O represents an upper bound, or a function which is >= our function f(x) at every point. This helps us because it acts as a better represented upper bound for our function
+Essentially Big O represents an upper bound, or a function which is >= our function f(x) at every point. This helps us because it acts as a better represented upper bound for our function <br>
 Big O will be better represented by the fact that f(x)/g(x) <= C. Example solve 
 ![Screenshot (166)](https://github.com/kushalk173-sc/351-final/assets/71304688/065ea6af-c011-47aa-91f2-22fee3dc68db)
 ![image](https://github.com/kushalk173-sc/351-final/assets/71304688/96921661-4a30-459c-9038-53aec2f2031d)
@@ -123,43 +123,6 @@ f(x)/g(x) => C
 
 ### Limit theorems for Big O
 ![image](https://github.com/kushalk173-sc/351-final/assets/71304688/c199e859-e97b-4693-b5ad-fcb45481b020)
-
----
-
-### Greedy Algorithm
-Generally grabs the most obvious good-looking solution. Usually not optimal.
-
----
-
-### Dynamic Programming
-A technique where we cache results as we go. Identifying redundant subproblems and eliminating them (e.g., Minimum number of coins or calculating a Fibonacci term mainly uses the results of recursive calls with reduced input, so there is no need to recompute the lower recursive calls over and over).
-
----
-
-### Divide And Conquer
-Divide a list in two and recurse.
-
----
-
-### Limit Theorems
-- **Lim f/g ≠ 0 or ∞** → f = Θ(g)
-- **Lim f/g ≠ 0** → f = Ω(g)
-- **Lim f/g ≠ ∞** → f = O(g)
-
----
-
-### Basic Derivatives
-- xⁿ → n*xⁿ⁻¹
-- nˣ → nˣ * ln(n)
-- logₐ x → 1/(x ln(a))
-- ln(x) → 1/x
-
----
-
-### Basic Summations
-- ∑n = n(n+1)/2
-- ∑n² = n(n+1)(2n+1)/6
-- ∑rⁱ = (rⁿ+¹ - 1) / (r - 1)
 
 ---
 
@@ -248,14 +211,14 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 ---
 
 ### Master Theorem: (T(n) = aT(n/b) + f(n))
-Better way to remember it 
-T(n) = a T(n/b) + f(n) where Θ(x) = f(n) 
-T(n) = Θ(x * n^log_b(a)) 
-4 cases = 
-x > n^log_b(a) -> ignore n^log_b(a) hence T(n) = Θ(x) [root is worst to process]
-x < n^log_b(a) -> ignore x hence T(n) = Θ(n^log_b(a)) [Leaves are worst to process
-x = n^log_b(a) -> Cannot ignore anything so T(n) = Θ(n^log_b(a) * log(n)) [All are equally bad to process] [We removed x here cuz technically processing root has been included in the first term] 
-Another catch - What x = n^c * (log n) ^ d , and c = log_b(a) Then ? We cannot ignore x's log factor anymore. So our Case changes into Θ(n^log_b(a) * (log(n))^d+1)
+Better way to remember it <br>
+T(n) = a T(n/b) + f(n) where Θ(x) = f(n) <br>
+T(n) = Θ(x * n^log_b(a)) <br>
+4 cases = <br>
+x > n^log_b(a) -> ignore n^log_b(a) hence T(n) = Θ(x) [root is worst to process] <br>
+x < n^log_b(a) -> ignore x hence T(n) = Θ(n^log_b(a)) [Leaves are worst to process<br>
+x = n^log_b(a) -> Cannot ignore anything so T(n) = Θ(n^log_b(a) * log(n)) [All are equally bad to process] [We removed x here cuz technically processing root has been included in the first term]  <br>
+Another catch - What x = n^c * (log n) ^ d , and c = log_b(a) Then ? We cannot ignore x's log factor anymore. So our Case changes into Θ(n^log_b(a) * (log(n))^d+1)<br>
 
 - **Case 1**: If f(n) = O(n^c) and log_b(a) > c, then T(n) = Θ(n^log_b(a)).
 - **Case 2**: If f(n) = Θ(n^c) and log_b(a) = c, then T(n) = Θ(n^log_b(a) * log(n)).
@@ -304,30 +267,6 @@ This is significantly faster than the traditional \( O(n^2) \) method, especiall
    - Split the input numbers.
    - Recursively compute the three products.
    - Combine the results as per the formula.
-
-### Pseudocode
-```python
-def karatsuba(x, y):
-    # Base case for recursion
-    if x < 10 or y < 10:
-        return x * y
-    else:
-        # Calculate the size of the numbers
-        n = max(len(str(x)), len(str(y)))
-        m = n // 2
-
-        # Split the digit sequences around the middle
-        x1, x0 = divmod(x, 10**m)
-        y1, y0 = divmod(y, 10**m)
-
-        # 3 recursive calls made to numbers approximately half the size
-        z2 = karatsuba(x1, y1)
-        z0 = karatsuba(x0, y0)
-        z1 = karatsuba(x1 + x0, y1 + y0)
-
-        # Combine the three products to get the final result
-        return (z2 * 10**(2*m)) + ((z1 - z2 - z0) * 10**m) + z0
-```
 
 ---
 
@@ -407,26 +346,6 @@ The game can be represented as a tree where:
    - If it's Min's turn, calculate the minimum value of the child nodes.
 3. **Backpropagation**: Propagate these values back up the tree, alternating between Max and Min layers, and placing the optimal value for both states in each of the parent root nodes. 
 
-### Pseudocode
-```python
-def minimax(node, depth, isMaximizingPlayer):
-    if depth == 0 or node is a terminal node:
-        return heuristic value of node
-
-    if isMaximizingPlayer:
-        bestValue = -infinity
-        for each child of node:
-            v = minimax(child, depth - 1, False)
-            bestValue = max(bestValue, v)
-        return bestValue
-    else:
-        bestValue = infinity
-        for each child of node:
-            v = minimax(child, depth - 1, True)
-            bestValue = min(bestValue, v)
-        return bestValue
-```
-
 ### Complexity
 - **Time Complexity**: \( O(b^d) \), where \( b \) is the branching factor and \( d \) is the depth of the tree.
 - **Space Complexity**: \( O(b \cdot d) \) due to the space required to store the tree and recursive call stack.
@@ -443,6 +362,7 @@ If a move proves to be worse than the previously examined moves, it is pruned (i
 
 The entire point of running alpha-beta pruning is to make sure that we are not focusing on dead values. In a game tree, when we find a node which will not be executed, as it is a worse choice than its sibling, then we remove it and the subtree for which it is a parent
 
+**TODO: GET MORE INFO FROM OH** 
 
 ---
 
@@ -497,7 +417,9 @@ The question of whether \( P = NP \) remains unsolved. Proving \( P = NP \) woul
 ### Example: SAT Problem
 - **SAT (Satisfiability Problem)**: Given a Boolean formula, determine if there is an assignment of truth values to variables that makes the formula true.
 - **NP-Completeness**: SAT was the first problem proven to be NP-complete (Cook-Levin theorem).
-- 
+
+**TODO: Talk about NP reductions in OH **
+
 ---
 #### Selection Sort
 1. **Why is selection sort preferred for small data sets?**
@@ -528,3 +450,34 @@ The question of whether \( P = NP \) remains unsolved. Proving \( P = NP \) woul
 
 ---
 
+# Other Good to know information - Not super important for me 
+
+### Greedy Algorithm
+Generally grabs the most obvious good-looking solution. Usually not optimal.
+
+---
+
+### Dynamic Programming
+A technique where we cache results as we go. Identifying redundant subproblems and eliminating them (e.g., Minimum number of coins or calculating a Fibonacci term mainly uses the results of recursive calls with reduced input, so there is no need to recompute the lower recursive calls over and over).
+
+---
+
+### Divide And Conquer
+Divide a list in two and recurse.
+
+---
+
+### Basic Derivatives
+- xⁿ → n*xⁿ⁻¹
+- nˣ → nˣ * ln(n)
+- logₐ x → 1/(x ln(a))
+- ln(x) → 1/x
+
+---
+
+### Basic Summations
+- ∑n = n(n+1)/2
+- ∑n² = n(n+1)(2n+1)/6
+- ∑rⁱ = (rⁿ+¹ - 1) / (r - 1)
+
+---
