@@ -1,6 +1,6 @@
 # 351-final
 
-# All Algorithm Information
+# All Algorithms Cheat Sheet
 | **Algorithm** | **Description** | **Worst Case** | **Best Case** | **Average Case** | **Recurrence Relation** | **In-Place** |
 |----------------|-----------------|---------------|---------------|----------------|-------------------------|-------------|
 | **Bubble Sort** | Iterates through a list of length n, starting at the beginning and swapping elements if the current is bigger. <br> After each step, the rightmost side becomes sorted. | O(n²) | O(n) | O(n²) | - | Yes |
@@ -59,6 +59,16 @@
 ### Bucket Sort
 - **Detailed Complexity Analysis**: Bucket sort's performance depends on the distribution of elements. If elements are uniformly distributed, each bucket will have a small number of elements, leading to O(n) time complexity.
 - **Practical Use**: Effective for sorting floating-point numbers or uniformly distributed data. The choice of bucket size and underlying sort is crucial for efficiency.
+- Our original list is split up into a bunch of presorted buckets. and we sort inside each bucket, and call it from there.
+- Lets say our list = A, len(A) = n.  Therefore number of buckets we use = floor(max(A)/n)+1
+- Each bucket will contain exactly the same range of items, except the last bucket, which can contain less than the range to fill in the excess.
+- We first go through the list in O(n) to find max, then go through the list in O(n) time, placing each element in the buckets, and then sort each bucket individually, with a specific sorting algorithm. This can make counting sort a whole lot more efficient, as it fixes a specific range, and minimizes the value of k, giving us a O(n) sort in counting sort on Average case [Look at Cool Note as an addendum]
+- Pick up each bucket. 
+- ** Worst Case ** - All elements go in one bucket hence O(n^2) or O(n log n ) -> depending on underlying sort
+- ** Best Case ** = All elements are uniformly distrubuted, so O(n)
+- ** Average Case ** = [Look at Cool Note Below] We are on average unlikely to end up with more than 4 elements in each bucket. 
+  
+- Cool note :  if we assume that the amount of elements that end up in each bucket is bounded by a constant number, then we can assume that the amount of time it takes to sort each bucket is also bounded by a constant number, therefore each bucket will be O(1), and incase the data is normally distrubuted, we should never face a case where number of elements in a bucket > 4
 
 ### Binary Search
 - **Detailed Complexity Analysis**: Binary search divides the search interval in half with each step, leading to O(log n) time complexity.
@@ -93,7 +103,7 @@
 - **Practical Use**: Used in decision making and AI for games like chess and tic-tac-toe.
 
 
-# Notes on Max’s Review Doc
+# All other Topics
 ---
 
 ### Coin Changing Algorithm
@@ -156,7 +166,10 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 
 **Advantages**: Efficient for small and nearly sorted lists; stable.
 **Disadvantages**: Inefficient for large lists due to O(n²) time complexity.
-
+**Best Case**: O(n) when list is already sorted
+**Worst Case**: O(n^2) when list is reverse sorted, so each element has to be inserted at the front. 
+<br> **What are Inversions ?**
+<br> An inversion is a pair of indexes, wher the elements are out of order. 
 ---
 
 ### Selection Sort
@@ -164,6 +177,8 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 **Operations comparison with Bubble Sort**: Selection sort uses fewer operations because it performs fewer swaps.
 **Advantages**: Simple and uses a minimal number of swaps.
 **Disadvantages**: Inefficient for large lists due to O(n²) time complexity; not stable.
+
+
 
 ---
 
@@ -202,11 +217,6 @@ A single pass iterates up to the entire sorted part’s length. The number of co
 **Cumulative array**: Second step, cumulative counts.
 **Weaknesses**: Not suitable when k is much higher than n; high space complexity.
 **Ideal data set**: Small range of values but high input.
-
----
-
-### Bucket Sort
-**Each Bucket is stored with a specific 
 
 ---
 
